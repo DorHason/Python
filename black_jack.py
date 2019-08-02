@@ -16,7 +16,7 @@ class Player:
         # money - the amount of money the player starts the game with
         # hand - the cards that the player holds, represented by a list
         # bet - the current player's bet
-        # not_busted - a boolean variable to determine if the player is busted
+        # not_busted - a boolean variable to determine if the player is busted or not
         self.name = name
         self.money = money
         self.hand = hand
