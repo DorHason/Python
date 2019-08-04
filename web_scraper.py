@@ -61,8 +61,8 @@ def get_images(url):
 
 def interface():
     """
-    The interface from which the program gets a valid url from the user
-    prints all the links and images from this url, and their number
+    the interface through which the program gets a valid url from the user
+    prints all the links and images from this url, and their quantity
     """
 
     # asks for url until a valid url was entered
@@ -75,13 +75,13 @@ def interface():
     links = get_links(url)
     images = get_images(url)
 
-    # check if the extraction succeeded, if so print the links and their number
+    # check if the extraction succeeded, if so print the links and their quantity
     if links:
         print(f"l\nlinks (total {len(links)}):")
         for link in links:
             print(link)
 
-    # check if the extraction succeeded, if so print the images (= url's) and their number
+    # check if the extraction succeeded, if so print the images (= url's) and their quantity
     if images:
         print(f"\nimages (total {len(images)}):")
         for image in images:
