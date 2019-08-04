@@ -1,6 +1,6 @@
 """
-Page Scraper
-an application which connects to a site and pulls out all links and images and prints them
+Web Scraper
+An application which connects to a site and pulls out all links and images (and prints them)
 """
 
 from bs4 import BeautifulSoup
