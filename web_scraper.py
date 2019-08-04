@@ -1,6 +1,7 @@
 """
-Web Scraper
-An application which connects to a site and pulls out all links and images (and prints them)
+Web Scraper - 
+An application which connects to a site and pulls out all links and images,
+Saves them to lists and prints them (without duplicates)
 """
 
 from bs4 import BeautifulSoup
@@ -26,7 +27,7 @@ def get_links(url):
         # extract only valid links
         for link in soup.findAll('a', attrs={'href': re.compile("^http://")}):
             links.append(link.get('href'))
-        return list(set(links))
+        return list(set(links))   # avoid duplicates
 
 
 def get_images(url):
@@ -50,28 +51,29 @@ def get_images(url):
             base_url += part + '/'
         base_url = base_url[:len(base_url) - 1]
 
-        # extract only valid images
+        # extract images
         for image in soup.findAll('img'):
             if 'http' in image.get('src'):
                 images.append(image.get('src'))
             else:
                 images.append(base_url + image.get('src'))
-        return list(set(images))
+        return list(set(images))   # avoid duplicates
 
 
 def interface():
     """
     the interface through which the program gets a valid url from the user
-    prints all the links and images from this url, and their quantity
+    extracts and saves all links and images from this url to lists
+    and prints them along with their quantity
     """
 
-    # asks for url until a valid url was entered
+    # ask for a url until a valid url was entered
     url = input("Please enter a url:\n")
     while not re.match(r"^http://", url):
         print("The url must start with 'http://', please try again")
         url = input("Please enter a url:\n")
 
-    # extract
+    # extract links and images and save them to lists
     links = get_links(url)
     images = get_images(url)
 
