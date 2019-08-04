@@ -77,7 +77,7 @@ def interface():
 
     # check if the extraction succeeded, if so print the links and their quantity
     if links:
-        print(f"l\nlinks (total {len(links)}):")
+        print(f"\nlinks (total {len(links)}):")
         for link in links:
             print(link)
 
